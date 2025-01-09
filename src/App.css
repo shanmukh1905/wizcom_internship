@@ -1,0 +1,513 @@
+/* General Dark Mode Styling */
+body {
+  background-color: #121212;
+  color: #e0e0e0;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h3, h4, h5 {
+  color: #fff;
+  font-weight: 600;
+}
+
+a {
+  color: #bb86fc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #3700b3;
+}
+
+button {
+  background-color: #6200ee;
+  color: #fff;
+  border: none;
+  margin-left: 2px;
+  margin-right: 2px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #3700b3;
+}
+
+button:disabled {
+  background-color: #4a4a4a;
+  cursor: not-allowed;
+}
+
+/*Login Form*/
+/* Container for the form */
+.form-container1 {
+  width: 75%; /* Adjusted width for smaller size */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  top: 35px; /* You can adjust the top value to control the distance from the top */
+  transform: translateX(0%); /* Centers the form horizontally */
+  transform: translateY(0%); /* Centers the form vertically */
+}
+
+/* Group for each form element */
+.form-group1 {
+  font-size: 20px; /* Smaller font size */
+  width: 50%;
+}
+
+/* Input field style */
+.form-input1 {
+  width: 100%;
+  padding: 8px; /* Adjusted padding for smaller size */
+  font-size: 18px; /* Smaller font size */
+  border-radius: 6px; /* Slightly smaller border radius */
+  border: 1px solid #444;
+  background-color: #292929;
+  color: #e0e0e0;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+/* Focused input field style */
+.form-input1:focus {
+  outline: none;
+  border-color: #bb86fc;
+}
+
+/* Placeholder text style */
+.form-input1::placeholder {
+  color: #777;
+}
+
+/* Form action container (for button) */
+.form-actions1 {
+  display: flex;
+  justify-content: center;
+}
+
+/* Button style (if you have a button) */
+.form-actions1 button {
+  padding: 6px 12px; /* Smaller padding for the button */
+  font-size: 20px; /* Smaller button font size */
+  border-radius: 6px; /* Consistent with input field */
+  border: 1px solid #444;
+  background-color: #bb86fc;
+  width: 100%;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form-actions1 button:hover {
+  background-color: #3700b3;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #1f1f1f;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 32px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-item {
+  margin-right: 32px;
+}
+
+.nav-item.active .nav-link {
+  color: #bb86fc;
+  font-weight: bold;
+}
+
+.nav-link {
+  color: #e0e0e0;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #bb86fc;
+}
+
+.profile-menu {
+  position: relative;
+}
+
+.menu-button {
+  background: none;
+  border: none;
+  color: #e0e0e0;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.search-bar{
+  width: 80%;
+}
+
+.dropdown-menu {
+  position: absolute;
+  right: 0;
+  background-color: #1f1f1f;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  padding: 16px;
+  width: 180px;
+  z-index: 1;
+}
+
+.dropdown-menu .greeting {
+  color: #bb86fc;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.logout-button {
+  background: none;
+  border: none;
+  color: #e0e0e0;
+  font-size: 14px;
+  width: 100%;
+  cursor: pointer;
+  padding: 8px 0;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #3700b3;
+}
+
+/* Page Container */
+.page-container {
+  padding: 20px;
+  max-width: 95%;
+  margin: 0 auto;
+}
+
+.page-title {
+  color: #fff;
+  font-size: 32px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+/* Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  padding: 12px 16px;
+  text-align: left;
+}
+
+th {
+  background-color: #333;
+  color: #e0e0e0;
+  font-size: 16px;
+}
+
+td {
+  background-color: #1f1f1f;
+  color: #e0e0e0;
+}
+
+tr:nth-child(even) td {
+  background-color: #292929;
+}
+
+tr:hover td {
+  background-color: #3700b3;
+  cursor: pointer;
+}
+
+table th, table td {
+  border: 1px solid #444;
+}
+
+table td button {
+  background-color: #6200ee;
+  font-size: 14px;
+  padding: 6px 10px;
+  margin-left: 4px;
+  border-radius: 60px;
+  cursor: pointer;
+}
+
+table td button:hover {
+  background-color: #3700b3;
+}
+
+/* Form Styles */
+.form-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.form-group {
+  width: 11%; /* Reduced width by 70% */
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.form-input-small, .form-select {
+  width: 50%;
+  padding: 6px 8px; /* Reduced padding */
+  border-radius: 8px;
+  border: 1px solid #444;
+  background-color: #292929;
+  color: #e0e0e0;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.form-input, .form-select {
+  width: 100%;
+  padding: 6px 8px; /* Reduced padding */
+  border-radius: 8px;
+  border: 1px solid #444;
+  background-color: #292929;
+  color: #e0e0e0;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.form-input:focus, .form-select:focus {
+  outline: none;
+  border-color: #bb86fc;
+}
+
+.form-input:hover, .form-select:hover {
+  border-color: #bb86fc;
+}
+
+.form-input::placeholder, .form-select::placeholder {
+  color: #777;
+}
+
+.form-button {
+  background-color: #6200ee;
+  color: #fff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  height: 5%;
+  margin-top: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.form-button:hover {
+  background-color: #3700b3;
+}
+
+.form-group .form-input,
+.form-group .form-select {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Modal Styling */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background-color: #333;
+  padding: 30px;
+  border-radius: 8px;
+  max-width: 600px;
+  width: 100%;
+  color: #e0e0e0;
+}
+
+.modal-content h3 {
+  margin-bottom: 20px;
+}
+
+input, select {
+  width: 90%;
+  padding: 6px 8px;
+  margin: 10px 0;
+  border: 1px solid #444;
+  background-color: #292929;
+  color: #e0e0e0;
+  border-radius: 4px;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: #bb86fc;
+}
+
+.error-message {
+  color: #ff5252;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    margin-top: 10px;
+  }
+
+  .nav-item {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .profile-menu {
+    margin-top: 10px;
+  }
+
+  table {
+    font-size: 14px;
+  }
+
+  .form-group {
+    width: 100%; /* Make form inputs full width on small screens */
+  }
+}
+
+/* Sleek and modern filter container styles */
+.filter-container {
+  position: absolute;
+  top: var(--filter-position-top, 0);
+  left: var(--filter-position-left, 0);
+  background-color: #343a40; /* Slightly lighter dark background */
+  border: 1px solid #495057; /* Softer, muted border */
+  padding: 12px 18px; /* Slightly more padding for a spacious feel */
+  border-radius: 8px; /* Rounded corners for a sleek look */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Softer shadow with a wider spread */
+  z-index: 1000;
+  color: #f8f9fa; /* Lighter text color for better contrast */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Clean, modern font */
+  font-size: 14px; /* Slightly larger text for readability */
+  display: flex;
+  flex-direction: column; /* Ensures that child elements stack nicely */
+  gap: 10px; /* Adds some space between child elements */
+  transition: all 0.3s ease-in-out; /* Smooth transition for hover or other interactions */
+}
+
+.filter-container:hover {
+  transform: translateY(-3px); /* Slight lift effect on hover */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25); /* Slightly stronger shadow on hover */
+}
+
+/* Media query for detecting dark mode */
+@media (prefers-color-scheme: dark) {
+  .filter-container {
+    background-color: #1e2125; /* Even darker background for dark mode */
+    border: 1px solid #333; /* Dark border to fit the theme */
+    color: #f1f1f1; /* Lighter text for better contrast */
+  }
+
+  .filter-heading {
+    color: #e0e0e0; /* Lighter heading text */
+  }
+
+  .filter-label {
+    color: #e0e0e0; /* Lighter label text */
+  }
+
+  .filter-checkbox {
+    accent-color: #8aacc8; /* Lighter checkbox accent */
+  }
+}
+
+.date-picker-container {
+  margin: 20px;
+}
+
+.date-picker-form {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+}
+
+.date-picker-label {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.date-input {
+  padding: 8px;
+  margin-bottom: 12px;
+}
+
+.date-picker-submit {
+  padding: 8px;
+  background-color: #6200ee;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.date-picker-submit:hover {
+  background-color: #6200ee;
+}
+
+.top-controls {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.on-demand-run,
+.file-upload-container,
+.export-section {
+  flex: 1; /* Allow both sections to share space equally */
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.export-section{
+  justify-content: center;
+  align-items: center;
+}
+
+.export-button{
+  width: 150px;
+  height: 50px;
+}
