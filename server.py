@@ -284,8 +284,6 @@ def get_previous_triggers(user_id):
     
     except Exception as e:
         return jsonify({"error": str(e), "message": "Failed to fetch previous triggers"}), 500
-<<<<<<< Updated upstream
-=======
     
 @app.route('/custom-triggers/<user_id>', methods=['GET'])
 def get_custom_triggers(user_id):
@@ -336,7 +334,6 @@ def submit_date():
     except subprocess.CalledProcessError as e:
         # Handle errors in the subprocess execution
         return jsonify({'status': 'error', 'message': e.output})
->>>>>>> Stashed changes
 
 @app.route('/hni-details', methods=['GET'])
 def get_hni_details():

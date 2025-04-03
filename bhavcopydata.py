@@ -4,11 +4,6 @@ import requests
 import pandas as pd
 import mysql.connector
 from _config import DB_HOST, DB_NAME, DB_PASSWORD, DB_PORT, DB_USER
-<<<<<<< Updated upstream
-
-import datetime
-=======
->>>>>>> Stashed changes
 
 # Get the current date and time
 today = datetime.datetime.now()

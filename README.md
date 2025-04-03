@@ -1,70 +1,170 @@
-# Getting Started with Create React App
+# Stock Alert Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A full-stack application for tracking stock prices and setting up price deviation alerts based on NSE (National Stock Exchange) data.
 
-## Available Scripts
+## Overview
 
-In the project directory, you can run:
+The Stock Alert Application allows users to:
+- Set up triggers for stock price movements
+- Upload and manage HNI (High Net worth Individual) details
+- View active and inactive triggers
+- Receive alerts when stocks cross specified price thresholds
+- Upload data in bulk via CSV files
 
-### `npm start`
+## Technology Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Backend
+- Python Flask API
+- MySQL Database
+- Scheduled tasks for data retrieval and comparison
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Frontend
+- React.js
+- React Router for navigation
+- Axios for API communication
 
-### `npm test`
+## Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Python 3.7+
+- Node.js 16+ and npm
+- MySQL Database Server
+- Git (optional, for cloning)
 
-### `npm run build`
+## Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 1. Clone the repository
+```bash
+git clone <repository-url>
+cd stock-alert-application
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 2. Database Setup
+1. Create a MySQL database named `stocks_view`
+2. Import the schema using the provided SQL file:
+```bash
+mysql -u username -p stocks_view < stocks_view.sql
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 3. Configure Database Connection
+Edit the `_config.py` file with your database credentials:
+```python
+DB_HOST = "your_host" # usually "localhost" or "127.0.0.1"
+DB_PORT = 3306
+DB_NAME = "stocks_view"
+DB_USER = "your_username"
+DB_PASSWORD = "your_password"
+```
 
-### `npm run eject`
+### 4. Install Backend Dependencies
+```bash
+pip install flask flask-cors mysql-connector-python pandas requests schedule
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 5. Install Frontend Dependencies
+```bash
+npm install
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Running the Application
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Starting the Backend
+```bash
+python server.py
+```
+Or use the provided start script:
+```bash
+chmod +x start.sh
+./start.sh
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Starting the Frontend (Development Mode)
+```bash
+npm start
+```
 
-## Learn More
+### Building for Production
+```bash
+npm run build
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Key Features
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 1. User Authentication
+- Secure login system
+- Session management
 
-### Code Splitting
+### 2. Trigger Management
+- Create, edit, and delete price movement triggers
+- Set price deviation thresholds for alerts
+- Mark triggers as active or inactive
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 3. HNI Details
+- Upload and manage HNI information
+- Link HNI details to specific stocks
 
-### Analyzing the Bundle Size
+### 4. Data Import/Export
+- Upload trigger data in bulk via CSV
+- Upload HNI data in bulk via CSV
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 5. Automated Data Processing
+- Daily fetching of NSE bhavcopy data
+- Automated comparison of market prices against triggers
+- Alert generation
 
-### Making a Progressive Web App
+## Application Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Backend Components
+- `server.py`: Main Flask application with API endpoints
+- `bhavcopydata.py`: Script to fetch and process NSE bhavcopy data
+- `compare.py`: Script to compare stock prices with triggers
+- `onDemand.py`: On-demand data processing
+- `hni_input.py`: HNI data processing
+- `add_trigger.py`: Trigger management
 
-### Advanced Configuration
+### Frontend Components
+- React components in `src/components/`
+- Page views in `src/pages/`
+- Main application in `src/App.js`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## API Endpoints
 
-### Deployment
+### Authentication
+- `/login` (POST): User login
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Triggers
+- `/active-triggers/<user_id>` (GET): Fetch active triggers
+- `/inactive-triggers/<user_id>` (GET): Fetch inactive triggers
+- `/all-triggers/<user_id>` (GET): Fetch all triggers
+- `/active-triggers/<user_id>` (POST): Add new trigger
+- `/active-triggers/<user_id>/<trigger_id>` (PUT): Update trigger
+- `/active-triggers/<user_id>/<trigger_id>` (DELETE): Delete trigger
 
-### `npm run build` fails to minify
+### HNI Details
+- `/hni-details` (GET): Fetch all HNI details
+- `/hni-details` (POST): Add new HNI detail
+- `/hni-details/<symbol>` (PUT): Update HNI detail
+- `/hni-details/<symbol>` (DELETE): Delete HNI detail
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### File Upload
+- `/upload-hni-file` (POST): Upload HNI details file
+- `/upload-triggers-file/<user_id>` (POST): Upload triggers file
+
+## Automated Tasks
+The system runs scheduled tasks:
+- 8:00 AM and 6:00 PM daily: Fetch NSE bhavcopy data
+- 8:00 AM and 6:00 PM daily: Compare prices against triggers
+
+## Troubleshooting
+
+### Logs
+- Check logs in the `logs/` directory for issues
+- Each log file is timestamped with the format `app_YYYYMMDD_HHMMSS.log`
+
+### Common Issues
+- Database connection issues: Verify credentials in `_config.py`
+- Data fetch issues: Check internet connectivity and NSE website status
+- Permission issues: Ensure the application has necessary file system permissions
+
+## License
+
+[Specify your license here]
