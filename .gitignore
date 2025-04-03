@@ -1,17 +1,31 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# Dependencies
-/node_modules
+# Dependency directories
+node_modules/
 /.pnp
 .pnp.js
+
+# Build outputs
+build/
+dist/
+/build
 
 # Testing
 /coverage
 
-# Production
-/build
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
-# Python
+# Log files
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python specific
 __pycache__/
 *.py[cod]
 *$py.class
@@ -34,30 +48,23 @@ var/
 *.egg
 venv/
 .venv/
-.env
 
-# Application specific
-/logs/
-/bhavcsvs/
-
-# Misc
-.DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-# Logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-*.log
-
-# Database
+# Database files
 *.sqlite3
 
-# IDE
+# IDE specific files
 .idea/
 .vscode/
 *.swp
 *.swo
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# Application specific
+bhavcsvs/
+/logs/
+
+# Temporary files
+tmp/ 
